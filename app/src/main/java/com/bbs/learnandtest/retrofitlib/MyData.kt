@@ -1,4 +1,4 @@
-package com.bbs.learnandtest.retrofitapi
+package com.bbs.learnandtest.retrofitlib
 
 data class MyData(
     val name: String,

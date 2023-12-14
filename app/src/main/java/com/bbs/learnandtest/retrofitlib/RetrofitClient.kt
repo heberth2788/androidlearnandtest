@@ -1,4 +1,4 @@
-package com.bbs.learnandtest.retrofitapi
+package com.bbs.learnandtest.retrofitlib
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

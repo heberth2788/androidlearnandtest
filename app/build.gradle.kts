@@ -50,12 +50,17 @@ android {
 }
 
 dependencies {
-    // Retrofit
+    // Retrofit: to consume web services
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // Converter Gson for retrofit
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    // Gson
+    // Gson: to parse a data classs to json string
     implementation("com.google.code.gson:gson:2.10.1")
+    // Glid: to download and process images
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    // TODO: Add support for "Glide’s annotation processing libraries" as Kotlin KSP(recommended) or KAPT.
+    // Glid & compose: Dependency to support Compose for Glide
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

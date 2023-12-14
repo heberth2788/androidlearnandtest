@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">learnandtest</string>
+    <string name="app_name">Learn and test</string>
+    <string name="glide_image">Glide image</string>
+    <string name="test_photo_url">https://corporate.sixt.com/wp-content/uploads/2021/04/sixt.com-10-business-keys-to-success-pro-success.jpeg</string>
+    <string name="default_photo_url">https://icon-library.com/images/waiting-icon-png/waiting-icon-png-5.jpg</string>
 </resources>

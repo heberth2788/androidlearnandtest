@@ -12,15 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
-import com.bbs.learnandtest.retrofitapi.ApiService
-import com.bbs.learnandtest.retrofitapi.MyData
-import com.bbs.learnandtest.retrofitapi.RetrofitClient
+import com.bbs.learnandtest.retrofitlib.ApiService
+import com.bbs.learnandtest.retrofitlib.MyData
+import com.bbs.learnandtest.retrofitlib.RetrofitClient
 import com.bbs.learnandtest.ui.theme.LearnandtestTheme
 import com.google.gson.Gson
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Call
 
 class MainActivity : ComponentActivity() {
 
@@ -40,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    MainScreen(name = "HD")
                 }
             }
         }
@@ -70,23 +68,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun downloadAndLoadImageWithGlide() {
+
+    }
+
     companion object {
         private val TAG = MainActivity::class.java.simpleName
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LearnandtestTheme {
-        Greeting("Android developer")
-    }
-}
