@@ -50,6 +50,10 @@ class MainActivity : ComponentActivity() {
         consumeWebServiceWithRetrofit()
     }
 
+    /**
+     * Consume a web service using Retrofit2 library.
+     * It use coroutines to doesn't block the main thread.
+     * */
     private fun consumeWebServiceWithRetrofit() {
         Log.d(TAG, "consumeWebServiceWithRetrofit")
         val apiService: ApiService = RetrofitClient.retrofit.create(ApiService::class.java)
