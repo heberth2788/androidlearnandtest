@@ -17,29 +17,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.bbs.learnandtest.glidelib.GlidePhotoView
 import com.bbs.learnandtest.ui.theme.LearnandtestTheme
+import com.bbs.learnandtest.uilayer.MainScreenViewModel
 
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
     name: String = "",
 ) {
+//    var urlState: String by rememberSaveable { mutableStateOf("") }
+//    val urlTest = stringResource(id = R.string.test_photo_url)
+
+    val viewModel: MainScreenViewModel = hiltViewModel()
+
     Column(
         //modifier = modifier.padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var urlState: String by rememberSaveable { mutableStateOf("") }
-        val urlTest = stringResource(id = R.string.test_photo_url)
-
         TextHeader(name, modifier)
         Button(
-            onClick = { urlState = urlTest },
+            // onClick = { urlState = urlTest },
+            onClick = { viewModel.getImageUrl() },
             modifier = modifier.padding(10.dp),
         ) {
             Text(text = "Load image")
         }
-        GlidePhotoView(modifier, urlState)
+        GlidePhotoView(modifier, viewModel.uiState.value)
     }
 }
 

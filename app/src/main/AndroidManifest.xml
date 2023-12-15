@@ -2,16 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <!--
-    Allows Glide to monitor connectivity status and restart failed requests if users go from a
-    a disconnected to a connected network state.
+     * INTERNET uses permission:
+        To allow to download pictures from internet.
+     -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+    * ACCESS_NETWORK_STATE uses permission:
+        Allows Glide to monitor connectivity status and restart failed requests
+        if users go from a disconnected to a connected network state.
     -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <!--
+    * networkSecurityConfig:
+        To allow to connect a local ip through http(No https)
+
+    * name:
+        To set the "Application" class with setup "@HiltAndroidApp" annotation
+        for Hilt DI library.
+    -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:name=".hiltlib.LearnAndTestApp"
         android:networkSecurityConfig="@xml/network_security_config"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +35,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Learnandtest"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -27,10 +43,9 @@
             android:theme="@style/Theme.Learnandtest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>

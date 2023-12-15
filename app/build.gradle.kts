@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    //Apply the Hilt gradle plugin
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -61,6 +64,10 @@ dependencies {
     // TODO: Add support for "Glide’s annotation processing libraries" as Kotlin KSP(recommended) or KAPT.
     // Glid & compose: Dependency to support Compose for Glide
     implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+    // Hilt dependencies
+    implementation("com.google.dagger:hilt-android:2.44")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -77,4 +84,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

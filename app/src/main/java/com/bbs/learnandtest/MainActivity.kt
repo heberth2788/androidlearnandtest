@@ -17,9 +17,11 @@ import com.bbs.learnandtest.retrofitlib.MyData
 import com.bbs.learnandtest.retrofitlib.RetrofitClient
 import com.bbs.learnandtest.ui.theme.LearnandtestTheme
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
 //     private lateinit var apiService: ApiService
@@ -66,10 +68,6 @@ class MainActivity : ComponentActivity() {
                 Log.d(TAG, "Exception caught : ${e.message}")
             }
         }
-    }
-
-    private fun downloadAndLoadImageWithGlide() {
-
     }
 
     companion object {
