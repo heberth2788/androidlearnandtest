@@ -68,6 +68,14 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
+    // Room: persistence library to save data on SQLite.
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    // For Room: To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+    // For Room: optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -84,6 +92,15 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    androidTestImplementation("androidx.test:runner:1.5.2")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    // Optional -- UI testing with Espresso
+    //androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Optional -- UI testing with UI Automator
+    //androidTestImplementation("androidx.test.uiautomator:uiautomator:2.2.0")
+    // Optional -- UI testing with Compose
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
 }
 
 // Allow references to generated code

@@ -1,5 +1,8 @@
 package com.bbs.learnandtest.retrofitlib
 
+/**
+ * POJO class to represent the data received from the web service
+ * */
 data class MyData(
     val name: String,
     val dni: String,

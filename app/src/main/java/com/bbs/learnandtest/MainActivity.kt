@@ -15,6 +15,9 @@ import androidx.lifecycle.lifecycleScope
 import com.bbs.learnandtest.retrofitlib.ApiService
 import com.bbs.learnandtest.retrofitlib.MyData
 import com.bbs.learnandtest.retrofitlib.RetrofitClient
+import com.bbs.learnandtest.roomlib.AppDatabase
+import com.bbs.learnandtest.roomlib.LearnAndTestDatabase
+import com.bbs.learnandtest.roomlib.User
 import com.bbs.learnandtest.ui.theme.LearnandtestTheme
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,6 +51,36 @@ class MainActivity : ComponentActivity() {
         // Consuming a web service with Retrofit from a Coroutine
         // apiService = RetrofitClient.retrofit.create(ApiService::class.java)
         consumeWebServiceWithRetrofit()
+
+        insertAndGetDataToDatabase()
+    }
+
+    private fun insertAndGetDataToDatabase() {
+        Log.d(TAG, "insertAndGetDataToDatabase")
+        lifecycleScope.launch(Dispatchers.IO) {
+            val db: AppDatabase? = LearnAndTestDatabase.getDatabase(application.applicationContext)
+            db?.userDao()?.insertAll(User(
+                dni = "45453948",
+                name = "Heberth",
+                surname = "Deza",
+                state = true,
+                code = 1988,
+                desc = "PM"
+            ), User(
+                dni = "44309130",
+                name = "Lilian",
+                surname = "Martinez",
+                state = true,
+                code = 1987,
+                desc = "PO"
+            ))
+            val users: List<User>? = db?.userDao()?.getAll()
+            users?.let {
+                for(u in it){
+                    Log.d(TAG, u.toString())
+                }
+            }
+        }
     }
 
     /**
