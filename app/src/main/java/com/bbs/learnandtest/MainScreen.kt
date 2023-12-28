@@ -20,18 +20,33 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bbs.learnandtest.glidelib.GlidePhotoView
 import com.bbs.learnandtest.ui.theme.LearnandtestTheme
+import com.bbs.learnandtest.uilayer.MainScreenState
 import com.bbs.learnandtest.uilayer.MainScreenViewModel
 
+/**
+ * State hoisting
+ * */
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
     name: String = "",
+    viewModel: MainScreenViewModel = hiltViewModel(),
 ) {
-//    var urlState: String by rememberSaveable { mutableStateOf("") }
-//    val urlTest = stringResource(id = R.string.test_photo_url)
+    MainContent(
+        modifier = modifier,
+        name = name,
+        onClickGetImage = { viewModel.getImageUrl() },
+        screenState = viewModel.uiState.value,
+    )
+}
 
-    val viewModel: MainScreenViewModel = hiltViewModel()
-
+@Composable
+fun MainContent(
+    modifier: Modifier = Modifier,
+    name: String = "",
+    onClickGetImage: () -> Unit = {},
+    screenState: MainScreenState = MainScreenState.Loading,
+) {
     Column(
         //modifier = modifier.padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -39,24 +54,14 @@ fun MainScreen(
         TextHeader(name, modifier)
         Button(
             // onClick = { urlState = urlTest },
-            onClick = { viewModel.getImageUrl() },
+            onClick = onClickGetImage,
             modifier = modifier.padding(10.dp),
         ) {
             Text(text = "Load image")
         }
-        GlidePhotoView(modifier, viewModel.uiState.value)
+        GlidePhotoView(modifier, screenState)
     }
 }
-
-//@Composable
-//fun ButtonToCallGlide(modifier: Modifier, url: String) {
-//    Button(
-//        onClick = { url = "" },
-//        modifier = modifier.padding(10.dp),
-//    ) {
-//        Text(text = "Load image")
-//    }
-//}
 
 @Composable
 fun TextHeader(name: String, modifier: Modifier) {
@@ -74,6 +79,6 @@ fun TextHeader(name: String, modifier: Modifier) {
 @Composable
 fun MainScreenPreview() {
     LearnandtestTheme {
-        MainScreen(name = "HD")
+        MainContent()
     }
 }
