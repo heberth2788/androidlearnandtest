@@ -67,6 +67,12 @@ dependencies {
     // Hilt dependencies
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.activity:activity:1.8.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    // RecyclerView dependencies
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
     // Room: persistence library to save data on SQLite.
     val room_version = "2.6.1"
@@ -76,7 +82,7 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
     // For Room: optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
-    // For kotlin corutines
+    // For kotlin coruti:
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     implementation("androidx.core:core-ktx:1.12.0")
