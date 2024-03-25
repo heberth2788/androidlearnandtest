@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "learnandtest"
 include(":app")
+include(":learnlib")
