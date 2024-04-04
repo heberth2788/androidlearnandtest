@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bbs.learnandtest.R
+import com.bbs.learnandtest.recyclerview.data.MyCustomData
 
 /**
  * RecyclerView
@@ -36,7 +37,6 @@ class MyRecyclerViewActivity : AppCompatActivity() {
             insets
         }
 
-        // For RecyclerView
         //[START recycler_view]
         val myDataSet = listOf(
             MyCustomData(date = "27 SET 1988", image = "", title = "GFGFHFGHF"),

@@ -1,13 +1,10 @@
 package com.bbs.learnandtest.recyclerview
 
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bbs.learnandtest.R
+import com.bbs.learnandtest.recyclerview.data.MyCustomData
 
 class MyCustomAdapter(
     private val myDataSet: List<MyCustomData>,

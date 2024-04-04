@@ -1,4 +1,4 @@
-package com.bbs.learnandtest.recyclerview
+package com.bbs.learnandtest.recyclerview.data
 
 data class MyCustomData(
     val image: String,
