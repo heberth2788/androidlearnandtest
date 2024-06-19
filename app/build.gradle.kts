@@ -1,9 +1,11 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    //Apply the Hilt gradle plugin
+    // Apply the Hilt gradle plugin
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    // To include support for Parcelable
+    id("kotlin-parcelize")
 }
 
 android {
